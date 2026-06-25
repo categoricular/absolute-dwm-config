@@ -7,15 +7,18 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+
+/* Catpuccing Mocha Color Scheme */
+static const char cpp_base[]		= "#1e1e2e"; // background
+static const char cpp_surface[]		= "#313244"; // inactive window border
+static const char cpp_text[]		= "#cdd6f4"; // text
+static const char cpp_mauve[]		= "#cba6f7"; // active window border
+static const char cpp_pink[]		= "#f5c2e7"; // accent highlights
+
+static const char *colors[][3]		= {
+	/*		 fg		 bg		 border		 */
+	[SchemeNorm] = { cpp_text,	 cpp_base,	 cpp_surface      },
+	[SchemeSel]  = { cpp_pink,	 cpp_base,	 cpp_mauve	  },
 };
 
 /* tagging */
@@ -58,7 +61,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", cpp_base, "-nf", cpp_text, "-sb", cpp_base, "-sf", cpp_pink, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
