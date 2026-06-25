@@ -1,13 +1,15 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx = 3;   /* border pixel of windows */
-static const unsigned int barpadding = 8; /* vertical inside the bar */
+static const unsigned int borderpx = 4;   /* border pixel of windows */
+static const unsigned int barpadding = 2; /* vertical inside the bar */
 static const unsigned int snap = 32;      /* snap pixel */
 static const int showbar = 1;             /* 0 means no bar */
 static const int topbar = 1;              /* 0 means bottom bar */
-static const char *fonts[] = {"BmapNF:size=11:antialias=true:autohint=true"};
-static const char dmenufont[] = "BmapNF:size=11";
+static const char *fonts[] = {
+    "Iosevka Nerd Font:size=11:antialias=true:autohint=true",
+    "JoyPixels:size=11:antialias=true:autohint=true"};
+static const char dmenufont[] = "Iosevka Nerd Font:size=11";
 
 /* gap size */
 static const unsigned int gappx = 14;
