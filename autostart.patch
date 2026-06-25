@@ -1,0 +1,32 @@
+diff -up a/dwm.c b/dwm.c
+--- a/dwm.c	2021-01-20 18:00:00.000000000 +0100
++++ b/dwm.c	2021-01-20 18:05:00.000000000 +0100
+@@ -193,6 +193,7 @@ static void resizeclient(Client *c, int
+ static void resizemouse(const Arg *arg);
+ static void restack(Monitor *m);
+ static void run(void);
++static void runautostart(void);
+ static void scan(void);
+ static bool sendevent(Client *c, Atom proto);
+ static void sendmon(Client *c, Monitor *m, int destroy);
+@@ -1380,6 +1381,12 @@ run(void)
+ }
+ 
+ void
++runautostart(void)
++{
++	system("cd ~/.dwm && ./autostart.sh &");
++}
++
++void
+ scan(void)
+ {
+ 	unsigned int i, num;
+@@ -2139,6 +2146,7 @@ main(int argc, char *argv[])
+ 	checkotherwm();
+ 	setup();
+ 	scan();
++	runautostart();
+ 	run();
+ 	cleanup();
+ 	XCloseDisplay(dpy);
